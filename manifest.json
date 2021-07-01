@@ -1,15 +1,22 @@
 {
-    "name": "Password Generator",
+    "name": "DST Password Generator",
     "description": "Extension use to generate string and secure password",
     "version": "1.0.0",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "background": {
-        "service_worker": "background.js"
+        "scripts":[
+            "background.js"
+        ]
     },
-    "action": {
-        "default_popup": "index.html",
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ],
+    "browser_action": {       
         "default_icon": {               
-            "16": "image/logo.png"    
-          }
+            "48": "image/logo.png"    
+          },
+        "default_title": "DST Password Generator",
+        "default_popup": "index.html"
       }       
   }
