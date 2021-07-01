@@ -1,15 +1,19 @@
 {
     "name": "AIB-DST Password Generator",
     "description": "Extension use to generate string and secure password",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-    },
     "action": {
         "default_popup": "index.html",
         "default_icon": {               
-            "16": "image/logo.png"    
+            "16": "/image/logo-one.png",
+            "48": "/image/logo-two.png",
+            "128": "/image/logo-three.png"    
           }
-      }       
-  }
+      },
+      "icons": {
+        "16": "/image/logo-one.png",
+        "48": "/image/logo-two.png",
+        "128": "/image/logo-three.png"  
+      }   
+}
