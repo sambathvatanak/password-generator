@@ -11,8 +11,8 @@ console.clear();
 // Fill : The trailing color that you see when you drag the slider.
 // background : Default Range Slider Background
 const sliderProps = {
-	fill: "#cba02b",
-	background: "#cba02b",
+	fill: "#0B1EDF",
+	background: "rgba(255, 255, 255, 0.214)",
 };
 
 // Selecting the Range Slider container which will effect the LENGTH property of the password.
