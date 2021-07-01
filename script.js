@@ -39,8 +39,8 @@ function applyFill(slider) {
 
 // Object of all the function names that we will use to create random letters of password
 const randomFunc = {
-	lower: getRandomLower,
 	upper: getRandomUpper,
+	lower: getRandomLower,
 	number: getRandomNumber,
 	symbol: getRandomSymbol,
 };
@@ -53,17 +53,29 @@ function secureMathRandom() {
 // Generator Functions
 // All the functions that are responsible to return a random value taht we will use to create password.
 function getRandomLower() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	//return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	return 'aib';
 }
 function getRandomUpper() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	//return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	return 'AIB';
 }
 function getRandomNumber() {
-	return String.fromCharCode(Math.floor(secureMathRandom() * 10) + 48);
+	const num = '123456789';
+	let number = num[Math.floor(Math.random() * num.length)];
+	return "20" + String.fromCharCode(Math.floor(secureMathRandom() * 10) + 48) + number.toString();
 }
 function getRandomSymbol() {
-	const symbols = '~!@#$%^&*()_+{}":?><;.,';
-	return symbols[Math.floor(Math.random() * symbols.length)];
+	//const symbols = '~!@#$%^&*()_+{}":?><;.,';
+	const symbols = '!@#$%^&*()?';
+	let result = '';
+	let i = 0;
+	for(i=0; i<3; i++)
+	{
+		result += symbols[Math.floor(Math.random() * symbols.length)];
+	}
+	console.log(result);
+	return result;
 }
 
 // Selecting all the DOM Elements that are necessary -->
@@ -159,19 +171,30 @@ generateBtn.addEventListener("click", () => {
 // Function responsible to generate password and then returning it.
 function generatePassword(length, lower, upper, number, symbol) {
 	let generatedPassword = "";
-	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+	const typesCount = upper + lower + number + symbol;
+	const typesArr = [{ number }, { symbol }].filter(item => Object.values(item)[0]);
+	const typesArrNew = [{ upper }, { lower }].filter(item => Object.values(item)[0]);
 	if (typesCount === 0) {
 		return "";
 	}
+	let b = 0;
 	for (let i = 0; i < length; i++) {
-		typesArr.forEach(type => {
-			const funcName = Object.keys(type)[0];
-			generatedPassword += randomFunc[funcName]();
-		});
+		if(b < 1){
+			typesArrNew.forEach(type => {
+				const funcName = Object.keys(type)[0];
+				generatedPassword += randomFunc[funcName]();
+			});
+			b++;
+		}else{
+			typesArr.forEach(type => {
+				const funcName = Object.keys(type)[0];
+				generatedPassword += randomFunc[funcName]();
+				//console.log(generatedPassword);
+			});
+		}		
 	}
 	return generatedPassword.slice(0, length)
-									.split('').sort(() => Math.random() - 0.5)
+									.split('')
 									.join('');
 }
 

@@ -1,0 +1,10 @@
+Usage:
+
+after install the extension.
+
+click on generate password button to generate password.
+user can also slide to limit the password length.
+
+Build:
+
+this extension build with HTML,CSS,Javascript

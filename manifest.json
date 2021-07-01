@@ -1,12 +1,11 @@
 {
     "name": "Password Generator",
-    "description": "Google chrome extension use for AIB",
+    "description": "Extension use to generate string and secure password",
     "version": "1.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["storage"],
     "action": {
         "default_popup": "index.html",
         "default_icon": {               
